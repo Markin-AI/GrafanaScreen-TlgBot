@@ -12,10 +12,10 @@ from config import *
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # Comment string below if you do not use proxy
-apihelper.proxy = apihelper_proxy
+#apihelper.proxy = apihelper_proxy
 
 headers = grafana_token
-path = image_path
+path = ./img
 
 
 def download_image(dasboard, panelId, user_id):
@@ -31,8 +31,8 @@ def download_image(dasboard, panelId, user_id):
     stimpenow = str(time.mktime(now.timetuple())).split('.')[0] + str(float(now.microsecond) / 1000000).split('.')[1][0:3]
     stimpe6 = str(time.mktime(now6.timetuple())).split('.')[0] + str(float(now.microsecond) / 1000000).split('.')[1][0:3]
     stimpe12 = str(time.mktime(now12.timetuple())).split('.')[0] + str(float(now.microsecond) / 1000000).split('.')[1][0:3]
-    url6 = grafana_url + '/render/dashboard-solo/db/' + dasboard + '?orgId=1&from=' + stimpe6 + '&to=' + stimpenow + '&panelId=' + panelId + '&width=1000&height=500'
-    url12 = grafana_url + '/render/dashboard-solo/db/' + dasboard + '?orgId=1&from=' + stimpe12 + '&to=' + stimpenow + '&panelId=' + panelId + '&width=1000&height=500'
+    url6 = http://grafana.voshod.local/ + '/render/dashboard-solo/db/' + dasboard + '?orgId=1&from=' + stimpe6 + '&to=' + stimpenow + '&panelId=' + panelId + '&width=1000&height=500'
+    url12 = http://grafana.voshod.local/ + '/render/dashboard-solo/db/' + dasboard + '?orgId=1&from=' + stimpe12 + '&to=' + stimpenow + '&panelId=' + panelId + '&width=1000&height=500'
     for url in url6, url12:
         now = datetime.datetime.now()
         filedate = now.strftime("%Y%m%d_%I-%M-%S-%m")
@@ -46,7 +46,7 @@ def download_image(dasboard, panelId, user_id):
         time.sleep(0.12)
 
 
-token = bot_token
+token = 7746760425:AAG3xnjm1Ynt7PDyXdNHfWDZ37FfkiihOCA
 bot = telebot.TeleBot(token)
 
 
@@ -61,14 +61,7 @@ white_list = user_list
 
 
 def check_user(user):
-    use = check
-    if use == 1:
-        if user in white_list:
-            return True
-        else:
-            return False
-    else:
-        return True
+    check = 0
 
 
 commands = command_list
